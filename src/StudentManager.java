@@ -100,14 +100,14 @@ public class StudentManager {
                     break;
 
                 case 15:
-                    if (choice == 14) {
+                    if (choice == 15) {
                         IO.println("Thank You!");
                     }
                     break;
                 default:
                     IO.println("Invalid Choice!");
             }
-        } while (choice != 14);
+        } while (choice != 15);
         sc.close();
     }
     public void addStudent(Scanner sc) {
