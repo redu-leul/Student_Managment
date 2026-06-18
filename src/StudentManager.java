@@ -7,8 +7,11 @@ public class StudentManager {
     final String TEXT_FILE = "students.txt";
     final String BINARY_FILE = "students.dat";
     final String OBJECT_FILE = "students.ser";
+    private FileManager file = new FileManager();
 
     public static void main(String[] args) {
+        FileManager fm = new FileManager();
+        File file = new File("students.dat");
         StudentManager sm = new StudentManager();
         sm.menu();
     }
@@ -41,8 +44,12 @@ public class StudentManager {
             IO.println("=================================================");
             IO.println("|              12. Load From Object File         |");
             IO.println("================================================");
-            IO.println("|              13. Exit                          |");
+            IO.println("|              13. File Info                     |");
             IO.println("=================================================");
+            IO.println("|              14. Backup Student File           |");
+            IO.println("===============================================");
+            IO.println("|              15. Exit                          |");
+            IO.println("================================================");
             IO.print("Enter choice: ");
 
             choice = sc.nextInt();
@@ -86,12 +93,21 @@ public class StudentManager {
                     loadObjectFile();
                     break;
                 case 13:
-                    IO.println("Thank You!");
+                    file.showFileProperties();
+                    break;
+                case 14:
+                    file.backupTextFile();
+                    break;
+
+                case 15:
+                    if (choice == 14) {
+                        IO.println("Thank You!");
+                    }
                     break;
                 default:
                     IO.println("Invalid Choice!");
             }
-        } while (choice != 13);
+        } while (choice != 14);
         sc.close();
     }
     public void addStudent(Scanner sc) {
